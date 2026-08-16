@@ -14,7 +14,6 @@ The platform enables citizens to report civic issues by uploading images and des
 
 **Deployed Application:**
 
-https://asset-manager--chaharamit917.replit.app/
 
 ---
 
@@ -66,9 +65,7 @@ CommunityPulse AI addresses this challenge by using Artificial Intelligence to a
 - PostgreSQL (Drizzle ORM)
 
 ### Deployment
-
-- Replit
-- Compatible architecture for Google Cloud Run
+chitecture for Google Cloud Run
 
 ---
 

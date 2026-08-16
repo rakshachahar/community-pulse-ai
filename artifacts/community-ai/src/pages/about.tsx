@@ -3,9 +3,9 @@ import { Card, CardContent } from "@/components/ui/card";
 
 export default function About() {
   return (
-    <div className="container mx-auto px-4 py-16 max-w-4xl">
+    <div className="container mx-auto max-w-5xl px-4 py-12 md:py-16">
       <div className="text-center mb-16">
-        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">Building a Smarter, <br/>More Responsive City</h1>
+        <h1 className="text-3xl font-bold tracking-tight md:text-5xl mb-5">Building a Smarter, <br/>More Responsive City</h1>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
           The Smart Community AI Assistant was built to eliminate the friction between citizens noticing a problem and the city fixing it.
         </p>

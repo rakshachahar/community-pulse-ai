@@ -44,6 +44,23 @@ Thumbs.db
 .cursor/rules/nx-rules.mdc
 .github/instructions/nx.instructions.md
 
-# Replit
-.cache/
-.local/
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+# TypeScript build cache
+*.tsbuildinfo
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Build output
+dist/

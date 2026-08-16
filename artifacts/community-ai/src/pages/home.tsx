@@ -1,58 +1,166 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Camera, Brain, Zap, Shield, BarChart3 } from "lucide-react";
-import heroImage from "@assets/generated_images/hero-illustration.png";
+import {
+  ArrowRight,
+  Camera,
+  Brain,
+  MapPin,
+  BarChart3,
+  ShieldCheck,
+  CheckCircle2,
+} from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-[100dvh]">
-      {/* Hero Section */}
-      <section className="relative pt-24 pb-32 overflow-hidden">
-        <div className="absolute inset-0 data-panel-bg opacity-40"></div>
-        <div className="container px-4 mx-auto relative z-10">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
-            <div className="lg:w-1/2 flex flex-col items-start text-left space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-semibold mb-2">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-                </span>
+    <div className="min-h-[100dvh] bg-background">
+      {/* HERO */}
+      <section className="relative overflow-hidden border-b">
+        {/* subtle technical grid */}
+        <div
+          className="pointer-events-none absolute inset-0 opacity-60"
+          style={{
+            backgroundImage: `
+              linear-gradient(to right, rgba(99,102,241,0.07) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(99,102,241,0.07) 1px, transparent 1px)
+            `,
+            backgroundSize: "32px 32px",
+          }}
+        />
+
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_75%_35%,rgba(99,102,241,0.10),transparent_35%)]" />
+
+        <div className="container relative z-10 mx-auto px-4 py-12 md:py-16 lg:py-20">
+          <div className="grid items-center gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
+            
+            {/* LEFT */}
+            <div className="max-w-2xl">
+              <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-3 py-1.5 text-sm font-medium text-primary">
+                <span className="h-2 w-2 rounded-full bg-primary" />
                 AI-Powered Civic Reporting
               </div>
-              <h1 className="text-5xl lg:text-7xl font-extrabold tracking-tight text-foreground leading-[1.1]">
-                Fix your city <br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">at the speed of AI.</span>
+
+              <h1 className="text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-[4.25rem]">
+                Report problems.
+                <br />
+                <span className="text-primary">
+                  Improve your community.
+                </span>
               </h1>
-              <p className="text-xl text-muted-foreground max-w-[600px] leading-relaxed">
-                Snap a photo. Our intelligence engine identifies the issue, assesses severity, and routes it to the right department instantly. No forms, no waiting on hold.
+
+              <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
+                Report civic issues with location, photos, and descriptions.
+                AI analyzes each report, assesses severity, and helps
+                prioritize action.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 pt-4 w-full sm:w-auto">
+
+              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                 <Link href="/report">
-                  <Button size="lg" className="w-full sm:w-auto text-lg h-14 px-8 rounded-full shadow-lg shadow-primary/25">
-                    Report an Issue <ArrowRight className="ml-2 w-5 h-5" />
+                  <Button
+                    size="lg"
+                    className="h-12 w-full rounded-lg px-6 sm:w-auto"
+                  >
+                    Report an Issue
+                    <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>
+
                 <Link href="/dashboard">
-                  <Button variant="outline" size="lg" className="w-full sm:w-auto text-lg h-14 px-8 rounded-full">
-                    View Live Dashboard
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="h-12 w-full rounded-lg px-6 sm:w-auto"
+                  >
+                    View Community Reports
                   </Button>
                 </Link>
               </div>
+
+              <div className="mt-7 grid grid-cols-1 gap-3 text-sm text-muted-foreground sm:grid-cols-3">
+                <div className="flex items-center gap-2">
+                  <MapPin className="h-4 w-4 text-primary" />
+                  Location based
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <Brain className="h-4 w-4 text-primary" />
+                  AI analyzed
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <ShieldCheck className="h-4 w-4 text-primary" />
+                  Anonymous
+                </div>
+              </div>
             </div>
-            <div className="lg:w-1/2 w-full relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-border/50 bg-card/50 backdrop-blur-sm p-2 transform rotate-1 hover:rotate-0 transition-transform duration-500">
-                <img 
-                  src={heroImage} 
-                  alt="Smart City Illustration" 
-                  className="w-full h-auto rounded-xl object-cover aspect-[4/3]"
-                />
-                <div className="absolute top-6 right-6 bg-background/90 backdrop-blur border border-border p-3 rounded-lg shadow-lg flex items-center gap-3 animate-in fade-in slide-in-from-bottom-4 delay-300">
-                  <div className="bg-accent/20 p-2 rounded-md text-accent">
-                    <Brain className="w-5 h-5" />
-                  </div>
+
+            {/* AI CARD */}
+            <div className="relative mx-auto w-full max-w-lg">
+              <div className="absolute -inset-4 rounded-3xl bg-primary/10 blur-2xl" />
+
+              <div className="relative rounded-2xl border bg-card/95 p-5 shadow-xl backdrop-blur-sm md:p-6">
+                <div className="mb-5 flex items-center justify-between">
                   <div>
-                    <div className="text-xs font-medium text-muted-foreground">AI Assessment</div>
-                    <div className="text-sm font-bold">Critical Priority</div>
+                    <p className="font-semibold">AI Issue Analysis</p>
+                    <p className="text-sm text-muted-foreground">
+                      Example community report
+                    </p>
+                  </div>
+
+                  <div className="rounded-xl bg-primary/10 p-3 text-primary">
+                    <Brain className="h-5 w-5" />
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="rounded-xl bg-muted/50 p-4">
+                    <p className="text-xs uppercase tracking-wide text-muted-foreground">
+                      Report
+                    </p>
+                    <p className="mt-1 font-medium">
+                      Flooding after heavy rainfall
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="rounded-xl border bg-background/60 p-4">
+                      <p className="text-xs text-muted-foreground">
+                        Category
+                      </p>
+                      <p className="mt-1 font-semibold">Drainage</p>
+                    </div>
+
+                    <div className="rounded-xl border bg-background/60 p-4">
+                      <p className="text-xs text-muted-foreground">
+                        Priority
+                      </p>
+                      <p className="mt-1 font-semibold text-orange-500">
+                        High
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="rounded-xl border border-primary/20 bg-primary/5 p-4">
+                    <div className="flex items-center gap-2 text-sm font-medium text-primary">
+                      <BarChart3 className="h-4 w-4" />
+                      AI Assessment
+                    </div>
+
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      Drainage inspection and immediate water removal are
+                      recommended.
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-3 border-t pt-4">
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                      <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+                      Severity assessed
+                    </div>
+
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                      <Camera className="h-4 w-4 text-primary" />
+                      Photo supported
+                    </div>
                   </div>
                 </div>
               </div>
@@ -61,136 +169,109 @@ export default function Home() {
         </div>
       </section>
 
-      {/* How it works */}
-      <section className="py-24 bg-muted/30 border-y">
-        <div className="container px-4 mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">How it works</h2>
-            <p className="text-muted-foreground text-lg">We've replaced bureaucratic red tape with artificial intelligence. Reporting an issue takes less than 30 seconds.</p>
+      {/* HOW IT WORKS */}
+      <section className="border-b bg-muted/20">
+        <div className="container mx-auto px-4 py-16 md:py-20">
+          <div className="mx-auto mb-10 max-w-2xl text-center">
+            <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-primary">
+              Simple workflow
+            </p>
+
+            <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+              From report to action
+            </h2>
+
+            <p className="mt-3 text-muted-foreground">
+              A simple path from reporting a problem to understanding what
+              needs attention.
+            </p>
           </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
+
+          <div className="grid gap-5 md:grid-cols-3">
             {[
               {
                 icon: Camera,
-                title: "1. Snap a Photo",
-                description: "See a pothole, broken light, or dumping? Take a picture with your phone. Location is automatically detected."
+                number: "01",
+                title: "Report",
+                text: "Describe the issue, add a photo, and provide its location.",
               },
               {
                 icon: Brain,
-                title: "2. AI Analysis",
-                description: "Our vision model identifies the problem, categorizes it, and calculates a severity score in real-time."
+                number: "02",
+                title: "Analyze",
+                text: "AI classifies the issue and evaluates severity and urgency.",
               },
               {
-                icon: Zap,
-                title: "3. Instant Routing",
-                description: "The intelligent report is immediately dispatched to the correct municipal department for prioritized action."
-              }
-            ].map((step, i) => (
-              <div key={i} className="bg-card border rounded-xl p-8 shadow-sm relative overflow-hidden group hover:border-primary/50 transition-colors">
-                <div className="absolute -right-4 -top-4 w-24 h-24 bg-primary/5 rounded-full group-hover:scale-150 transition-transform duration-500 ease-out"></div>
-                <div className="bg-primary/10 text-primary w-14 h-14 rounded-lg flex items-center justify-center mb-6 relative z-10">
-                  <step.icon className="w-7 h-7" />
+                icon: BarChart3,
+                number: "03",
+                title: "Prioritize",
+                text: "Structured reports help authorities focus on important issues.",
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="group rounded-xl border bg-card p-6 transition-all hover:-translate-y-1 hover:border-primary/30 hover:shadow-md"
+              >
+                <div className="mb-5 flex items-center justify-between">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                    <item.icon className="h-5 w-5" />
+                  </div>
+
+                  <span className="font-mono text-xs text-muted-foreground">
+                    {item.number}
+                  </span>
                 </div>
-                <h3 className="text-xl font-bold mb-3 relative z-10">{step.title}</h3>
-                <p className="text-muted-foreground relative z-10">{step.description}</p>
+
+                <h3 className="text-lg font-semibold">{item.title}</h3>
+
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {item.text}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Features */}
-      <section className="py-24">
-        <div className="container px-4 mx-auto">
-          <div className="flex flex-col md:flex-row items-center gap-16">
-            <div className="md:w-1/2 space-y-8">
-              <h2 className="text-3xl md:text-4xl font-bold">Built for transparency. <br/>Designed for action.</h2>
-              <ul className="space-y-6">
-                {[
-                  {
-                    icon: Shield,
-                    title: "Anonymous Reporting",
-                    description: "Report sensitive issues without revealing your identity. We care about the problem, not who reported it."
-                  },
-                  {
-                    icon: BarChart3,
-                    title: "Public Dashboard",
-                    description: "Watch as issues are resolved. Our public dashboard holds city officials accountable with real-time statistics."
-                  },
-                  {
-                    icon: Zap,
-                    title: "Predictive Resolution",
-                    description: "Our AI estimates repair times and environmental impact, helping communities prioritize effectively."
-                  }
-                ].map((feature, i) => (
-                  <li key={i} className="flex gap-4">
-                    <div className="mt-1 bg-accent/10 text-accent p-2 rounded flex-shrink-0 h-fit">
-                      <feature.icon className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-lg">{feature.title}</h4>
-                      <p className="text-muted-foreground">{feature.description}</p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="md:w-1/2 w-full">
-              <div className="bg-zinc-900 rounded-2xl p-6 md:p-8 text-zinc-100 shadow-2xl relative overflow-hidden border border-zinc-800">
-                <div className="absolute top-0 right-0 p-4 opacity-10">
-                  <Brain className="w-48 h-48" />
-                </div>
-                <h3 className="font-mono text-cyan-400 mb-6 flex items-center gap-2">
-                  <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></span>
-                  AI_INTELLIGENCE_REPORT
-                </h3>
-                <div className="space-y-4 font-mono text-sm">
-                  <div className="flex justify-between border-b border-zinc-800 pb-2">
-                    <span className="text-zinc-500">CATEGORY</span>
-                    <span className="text-zinc-200">Road Infrastructure</span>
-                  </div>
-                  <div className="flex justify-between border-b border-zinc-800 pb-2">
-                    <span className="text-zinc-500">CONFIDENCE</span>
-                    <span className="text-emerald-400">98.4%</span>
-                  </div>
-                  <div className="flex justify-between border-b border-zinc-800 pb-2">
-                    <span className="text-zinc-500">SEVERITY</span>
-                    <div className="flex items-center gap-2">
-                      <div className="h-2 w-24 bg-zinc-800 rounded-full overflow-hidden">
-                        <div className="h-full bg-rose-500 w-4/5"></div>
-                      </div>
-                      <span className="text-rose-400">8/10</span>
-                    </div>
-                  </div>
-                  <div className="pt-4">
-                    <span className="text-zinc-500 block mb-2">SUGGESTED_ACTIONS</span>
-                    <ul className="list-square pl-4 text-zinc-300 space-y-2">
-                      <li>Dispatch rapid repair team within 24h</li>
-                      <li>Deploy temporary traffic cones</li>
-                      <li>Check underlying water main for leakage</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* CTA */}
-      <section className="py-24 bg-primary text-primary-foreground text-center relative overflow-hidden">
-        <div className="absolute inset-0 data-panel-bg opacity-10"></div>
-        <div className="container px-4 mx-auto relative z-10 max-w-3xl">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">See something? Say something.</h2>
-          <p className="text-primary-foreground/80 text-xl mb-10">
-            Join thousands of citizens using AI to make their neighborhoods safer, cleaner, and more efficient.
-          </p>
-          <Link href="/report">
-            <Button size="lg" variant="secondary" className="text-lg h-14 px-8 rounded-full">
-              Make a Report Now
-            </Button>
-          </Link>
+      <section className="container mx-auto px-8 py-10 md:py-12">
+        <div className="relative overflow-hidden rounded-2xl bg-primary px-6 py-12 text-center text-primary-foreground md:px-12">
+          <div
+            className="absolute inset-0 opacity-10"
+            style={{
+              backgroundImage: `
+                linear-gradient(to right, white 1px, transparent 1px),
+                linear-gradient(to bottom, white 1px, transparent 1px)
+              `,
+              backgroundSize: "28px 28px",
+            }}
+          />
+
+          <div className="relative z-10">
+            <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-primary-foreground/70">
+              Make your neighborhood visible
+            </p>
+
+            <h2 className="text-3xl font-bold md:text-4xl">
+              See a problem? Report it.
+            </h2>
+
+            <p className="mx-auto mt-3 max-w-xl text-primary-foreground/80">
+              Turn a local issue into a structured report that can be
+              understood, analyzed, and acted upon.
+            </p>
+
+            <Link href="/report">
+              <Button
+                size="lg"
+                variant="secondary"
+                className="mt-7 h-12 rounded-lg px-6"
+              >
+                Make a Report
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+          </div>
         </div>
       </section>
     </div>

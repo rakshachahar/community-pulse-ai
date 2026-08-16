@@ -26,10 +26,10 @@ export default function Dashboard() {
   const COLORS = ['hsl(var(--chart-1))', 'hsl(var(--chart-2))', 'hsl(var(--chart-3))', 'hsl(var(--chart-4))', 'hsl(var(--chart-5))'];
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-7xl">
+    <div className="container mx-auto px-4 py-6 max-w-7xl">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">City Intelligence Dashboard</h1>
+          <h1 className="text-2xl md:text-3xl font-bold tracking-tight">City Intelligence Dashboard</h1>
           <p className="text-muted-foreground mt-1">Real-time overview of community reported issues.</p>
         </div>
         <Link href="/report">

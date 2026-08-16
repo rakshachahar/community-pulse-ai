@@ -60,7 +60,7 @@ export default function ComplaintDetail() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-6xl">
+    <div className="container mx-auto px-4 py-6 max-w-6xl">
       <Link href="/dashboard" className="inline-flex items-center text-sm font-medium text-muted-foreground hover:text-foreground mb-6 transition-colors">
         <ArrowLeft className="w-4 h-4 mr-2" /> Back to Dashboard
       </Link>
@@ -68,7 +68,7 @@ export default function ComplaintDetail() {
       <div className="flex flex-col md:flex-row justify-between items-start gap-4 mb-8">
         <div>
           <div className="flex items-center gap-3 mb-2">
-            <h1 className="text-3xl font-bold tracking-tight">
+            <h1 className="text-2xl md:text-3xl font-bold tracking-tight">
               {complaint.aiTitle || complaint.category || "Uncategorized Issue"}
             </h1>
             <span className="font-mono text-muted-foreground text-sm bg-muted px-2 py-1 rounded">#{complaint.id}</span>
@@ -98,7 +98,7 @@ export default function ComplaintDetail() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
         <div className="lg:col-span-2 space-y-8">
           <Card>
             <CardContent className="p-0 overflow-hidden relative group">
