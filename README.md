@@ -10,7 +10,7 @@ Instead of storing complaints as raw text, the system analyzes them to identify 
 
 ## 🌐 Live Demo
 
-**[CommunityPulse AI](https://community-pulse-ai.onrender.com/)**
+(https://community-pulse-ai.onrender.com/)
 
 ## ✨ Key Features
 
@@ -139,11 +139,12 @@ Example:
 **Raksha Chahar**
 B.Tech AI/ML Engineering Student
 
-[GitHub](https://github.com/rakshachahar)
+(https://github.com/rakshachahar)
 
 ## 📄 License
 
-MIT License
+This project is licensed under the MIT License.
+See the {LICENSE} file for details.
 
 ---
 
