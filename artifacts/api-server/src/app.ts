@@ -38,21 +38,20 @@ app.use(
   }),
 );
 
-app.use(cors());app.use(cors({
-  origin: process.env.CORS_ORIGIN || false,
-}));
+app.use(
+  cors({
+    origin: process.env.CORS_ORIGIN || true,
+  }),
+);
 
 app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ extended: true }));
 
-// API routes
 app.use("/api", router);
 
-// Serve production frontend
 if (existsSync(frontendPath)) {
   app.use(express.static(frontendPath));
 
-  // SPA fallback
   app.get("*splat", (req, res, next) => {
     if (req.path.startsWith("/api")) {
       return next();
