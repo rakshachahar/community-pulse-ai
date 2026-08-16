@@ -1,173 +1,150 @@
-# CommunityPulse AI
+# 🌆 CommunityPulse AI
 
-> **Making Communities Smarter Through AI-Powered Civic Intelligence**
+### AI-Powered Civic Issue Intelligence Platform
 
-CommunityPulse AI is an AI-powered civic issue reporting platform developed for the **Gen AI Academy APAC Hackathon** under the theme:
+> **Turning citizen complaints into structured civic intelligence.**
 
-**AI for Better Living and Smarter Communities**
+CommunityPulse AI is an AI-powered platform that helps citizens report community issues and transforms those reports into structured, actionable insights using **Google Gemini**.
 
-The platform enables citizens to report civic issues by uploading images and descriptions. Using Google's Gemini AI, the application analyzes reports, classifies issues, estimates severity, recommends responsible departments, and provides authorities with an analytics dashboard for smarter decision-making.
+Instead of storing complaints as raw text, the system analyzes them to identify the **issue, severity, priority, responsible department, and suggested actions**.
 
----
+## 🌐 Live Demo
 
-## Live Demo
+**[CommunityPulse AI](https://community-pulse-ai.onrender.com/)**
 
-**Deployed Application:**
+## ✨ Key Features
 
+* 📝 **Civic Issue Reporting** - Submit complaints with descriptions, categories, and supporting information.
+* 🤖 **AI Analysis** - Gemini analyzes complaints and generates structured insights.
+* 🚨 **Severity & Priority Detection** - Helps identify which issues may require greater attention.
+* 🏢 **Department Recommendation** - Suggests the appropriate department for handling an issue.
+* 📊 **Admin Dashboard** - View complaints, categories, priorities, severity, and analytics.
+* 🔎 **Complaint Management** - Review individual complaints and their AI-generated analysis.
+* 📱 **Responsive UI** - Designed for desktop and mobile screens.
 
----
+## ⚙️ How It Works
 
-## Problem Statement
-
-Traditional civic complaint systems are often slow, manual, and inefficient.
-
-CommunityPulse AI addresses this challenge by using Artificial Intelligence to automate complaint analysis, prioritize issues, and provide actionable insights for authorities.
-
----
-
-## Features
-
-- AI-powered image analysis using Google Gemini
-- Automatic complaint classification
-- AI-generated complaint title and summary
-- Priority and severity prediction
-- Department recommendation
-- Suggested corrective actions
-- Environmental impact assessment
-- Complaint management dashboard
-- Admin panel for monitoring reports
-- Search and filtering
-- Interactive analytics charts
-- Responsive modern UI
-
----
-
-## Tech Stack
-
-### Frontend
-
-- React
-- Vite
-- Tailwind CSS
-- Recharts
-
-### Backend
-
-- Node.js
-- Express
-
-### AI
-
-- Google Gemini API
-
-### Database
-
-- PostgreSQL (Drizzle ORM)
-
-### Deployment
-chitecture for Google Cloud Run
-
----
-
-## Project Structure
-
-```
-artifacts/
-├── community-ai/      # React Frontend
-├── api-server/        # Express Backend
-
-lib/
-├── api-client-react/
-├── api-spec/
-├── api-zod/
-└── db/
-
-scripts/
-
-package.json
-pnpm-workspace.yaml
+```text
+Citizen Report
+      ↓
+AI Analysis
+      ↓
+Classification
+      ↓
+Severity & Priority
+      ↓
+Department Recommendation
+      ↓
+Actionable Insights
+      ↓
+Admin Dashboard
 ```
 
----
+## 🏗️ Architecture
 
-## How It Works
+```text
+React + Vite + Tailwind
+          ↓
+   Node.js + Express
+       ↙       ↘
+Google Gemini   PostgreSQL
+       ↘       ↙
+   Civic Dashboard
+```
 
-1. User uploads an image of a civic issue.
-2. User provides a short description.
-3. Google Gemini analyzes the image and text.
-4. AI classifies the issue.
-5. The system predicts severity and urgency.
-6. Responsible department is recommended.
-7. Complaint is stored and displayed on the dashboard.
-8. Authorities monitor and manage reports through the admin panel.
+## 🧰 Tech Stack
 
----
+**Frontend:** React, TypeScript, Vite, Tailwind CSS, Recharts
+**Backend:** Node.js, Express, TypeScript, REST APIs
+**AI:** Google Gemini API
+**Database:** PostgreSQL, Drizzle ORM
+**Validation:** Zod
+**Deployment:** Render
+**Package Manager:** pnpm
 
-## Installation
-
-Clone the repository:
+## 🛠️ Run Locally
 
 ```bash
-git clone https://github.com/rakshachahar/CommunityPulseAI-Hackathon.git
-```
-
-Install dependencies:
-
-```bash
+git clone https://github.com/rakshachahar/community-pulse-ai.git
+cd community-pulse-ai
 pnpm install
 ```
 
-Run the application:
+Create a `.env` file:
+
+```env
+DATABASE_URL=your_postgresql_connection_string
+GEMINI_API_KEY=your_gemini_api_key
+PORT=3000
+NODE_ENV=development
+```
+
+Start the application:
 
 ```bash
 pnpm dev
 ```
 
----
+Build and type-check:
 
-## Environment Variables
-
-Create a `.env` file:
-
-```env
-GEMINI_API_KEY=YOUR_GEMINI_API_KEY
+```bash
+pnpm run typecheck
+pnpm run build
 ```
 
+## 🔌 API
+
+### Health Check
+
+```http
+GET /api/healthz
+```
+
+### Complaint Analysis
+
+```http
+POST /api/complaints/analyze
+```
+
+Example:
+
+```json
+{
+  "description": "flooding after heavy rain",
+  "category": "drainage"
+}
+```
+
+## ⚠️ Limitations
+
+* AI-generated analysis may occasionally be inaccurate.
+* AI recommendations should be reviewed by humans before real-world action.
+* Analysis quality depends on the information provided.
+* Large-scale deployment would require additional security, privacy, and compliance measures.
+
+## 🔮 Future Scope
+
+* Real-time complaint tracking
+* Regional language support
+* Voice-based reporting
+* GIS-based issue heatmaps
+* Duplicate complaint detection
+* Predictive civic maintenance
+* Automated department routing
+* Mobile application
+* AI civic assistant
+
+## 👩‍💻 Author
+
+**Raksha Chahar**
+B.Tech AI/ML Engineering Student
+
+[GitHub](https://github.com/rakshachahar)
+
+## 📄 License
+
+MIT License
+
 ---
 
-## Future Improvements
-
-- Real-time notifications
-- Regional language support
-- Voice-based complaint reporting
-- GIS heatmap visualization
-- Mobile application
-- IoT integration
-- Predictive civic maintenance
-- AI chatbot assistant
-
----
-
-## Impact
-
-CommunityPulse AI helps improve civic governance by:
-
-- Reducing manual complaint processing
-- Improving response prioritization
-- Supporting data-driven decisions
-- Increasing transparency
-- Enhancing citizen engagement
-
----
-
-## Team
-
-**Team Name:** Byte Babes
-
-**Project:** CommunityPulse AI
-
----
-
-## License
-
-This project was developed for the **Gen AI Academy APAC Hackathon** for educational and demonstration purposes.
+> **CommunityPulse AI — From citizen complaints to actionable civic intelligence.**
